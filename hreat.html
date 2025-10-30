@@ -3,16 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Une surprise pour toi ❤️</title>
+  <title>For You ❤️</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Caveat:wght@400;700&display=swap');
-
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Caveat:wght@400;700&family=Aref+Ruqaa:wght@400;700&display=swap');
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
       height: 100vh;
       width: 100%;
@@ -20,13 +18,15 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      background-image: url(tele.jpg);
+      background-size: contain;
+      background-position: center;
+      /*background: linear-gradient(135deg, #9972a9, #ecc4fa);*/
       font-family: 'Segoe UI', sans-serif;
       color: #333;
       text-align: center;
       overflow: hidden;
     }
-
     h1 {
       font-family: 'Dancing Script', cursive;
       font-size: 3.5rem;
@@ -35,24 +35,21 @@
       margin-bottom: 2rem;
       z-index: 10;
     }
-
     .heart {
-      color: #ea0505;
+      color: #ff0303;
       font-size: 1.5rem;
       animation: pulse 1.5s infinite;
     }
-
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.3); }
       100% { transform: scale(1); }
     }
-
     /* Enveloppe rouge */
     .wrapper {
       height: 300px;
       width: 400px;
-      background-color: #e91e63; /* Rouge principal */
+      background-color: #fd3a3a; /* Rouge principal */
       position: relative;
       display: flex;
       justify-content: center;
@@ -62,28 +59,23 @@
       transition: all 0.5s ease;
       opacity: 1;
     }
-
     .wrapper:hover {
       transform: scale(1.05);
     }
-
     /* États de l'enveloppe */
     .wrapper.opening .lid.one {
       transform: rotateX(90deg);
       transition-delay: 0s;
     }
-
     .wrapper.opening .lid.two {
       transform: rotateX(180deg);
       transition-delay: 0.25s;
     }
-
     .wrapper.hidden {
       opacity: 0;
       transform: scale(0.8);
       transition: all 0.5s ease;
     }
-
     /* Rabat avant fermé */
     .lid {
       position: absolute;
@@ -97,14 +89,12 @@
       transform-origin: top;
       transition: transform 0.5s linear;
     }
-
     .lid.one {
-      border-top: 150px solid #f48fb1; /* Rouge clair pour le rabat */
+      border-top: 150px solid #c30303; /* Rouge clair pour le rabat */
       transform: rotateX(0deg);
       z-index: 3;
       transition-delay: 0.75s;
     }
-
     /* Rabat arrière */
     .lid.two {
       border-top: 150px solid #e91e63;
@@ -112,7 +102,6 @@
       z-index: 1;
       transition-delay: 0.5s;
     }
-
     /* Corps de l'enveloppe */
     .envelope {
       position: absolute;
@@ -121,12 +110,11 @@
       top: 0;
       left: 0;
       border-top: 150px solid transparent;
-      border-right: 200px solid #f8bbd9; /* Rouge très clair pour les côtés */
-      border-bottom: 150px solid #f8bbd9;
-      border-left: 200px solid #f8bbd9;
+      border-right: 200px solid #df0303; /* Rouge très clair pour les côtés */
+      border-bottom: 150px solid #df0303;
+      border-left: 200px solid #df0303;
       z-index: 3;
     }
-
     /* Bouton centré DANS l'enveloppe */
     button {
       position: absolute;
@@ -145,13 +133,11 @@
       z-index: 4; /* Au-dessus des rabats */
       font-weight: bold;
     }
-
     button:hover {
       transform: translate(-50%, -50%) translateY(-2px);
       box-shadow: 0 6px 15px rgba(233, 30, 99, 0.4);
       background: white;
     }
-
     /* La lettre vintage (cadre ancien) */
     .letter {
       position: absolute;
@@ -160,7 +146,7 @@
       transform: translate(-50%, -50%);
       width: 90%;
       max-width: 600px;
-      background: 
+      background:
         linear-gradient(145deg, #f5e8c7 0%, #e8d5b7 50%, #d4c4a8 100%), /* Dégradé parchemin */
         radial-gradient(circle at 20% 80%, rgba(255,255,255,0.3) 0%, transparent 50%), /* Texture subtile */
         radial-gradient(circle at 80% 20%, rgba(0,0,0,0.05) 0%, transparent 50%); /* Bruit léger */
@@ -169,22 +155,20 @@
       padding: 2.5rem;
       opacity: 0;
       transition: all 0.8s ease;
-      box-shadow: 
+      box-shadow:
         0 15px 40px rgba(0,0,0,0.3), /* Ombre externe profonde */
         inset 0 0 20px rgba(255,255,255,0.1), /* Lumière intérieure */
         5px 5px 10px rgba(0,0,0,0.1); /* Bordure usée */
       display: none;
       border: 2px solid rgba(139, 69, 19, 0.3); /* Bordure sépia jaunie */
-      font-family: 'Caveat', cursive;
+      font-family: 'Aref Ruqaa', 'Caveat', cursive;
       line-height: 1.8;
     }
-
     .letter.visible {
       opacity: 1;
       display: block;
       animation: fadeIn 1s ease-in;
     }
-
     .letter h2 {
       font-family: 'Dancing Script', cursive;
       font-size: 2.5rem;
@@ -192,84 +176,97 @@
       margin-bottom: 1.5rem;
       text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     }
-
     .letter p {
       font-size: 1.2rem;
       color: #5D4037; /* Brun foncé pour texte ancien */
       margin-bottom: 1rem;
-      color: #333;
-      text-align: left;
+      /* Corrections pour arabe RTL */
+      direction: rtl;
+      text-align: right;
+      font-family: 'Aref Ruqaa', serif; /* Police Aref Ruqaa prioritaire pour arabe */
     }
-
     .letter strong {
       color: #8B4513;
       font-weight: 700;
     }
-
+    /* Signature avec style manuscrit */
+    .letter p[style] {
+      font-family: 'Aref Ruqaa', 'Caveat', cursive;
+      direction: rtl;
+      text-align: right;
+    }
     /* Animation de fondu pour la lettre (avec effet dépliage) */
     @keyframes fadeIn {
-      from { 
-        opacity: 0; 
+      from {
+        opacity: 0;
         transform: translate(-50%, -50%) translateY(20px) rotate(-2deg); /* Effet "plié" vintage */
       }
-      to { 
-        opacity: 1; 
-        transform: translate(-50%, -50%) translateY(0) rotate(0deg); 
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) translateY(0) rotate(0deg);
       }
     }
   </style>
 </head>
 <body>
-
-  <h1>Une surprise pour toi <span class="heart"></span></h1>
-  
+  <h1>Surprise For You <span class="heart">❤️</span></h1>
+ 
   <!-- L'enveloppe (avec bouton dedans) -->
   <div class="wrapper" id="envelopeWrapper">
     <div class="lid one"></div>
     <div class="lid two"></div>
     <div class="envelope"></div>
-    
+   
     <!-- Bouton centré dans l'enveloppe -->
-    <button id="openBtn" onclick="revealLetter()">haliii haliii 😂</button>
+    <button id="openBtn" onclick="revealLetter()">❤️</button>
   </div>
-
   <!-- La lettre vintage (centrée après révélation) -->
   <div class="letter" id="letterContent">
     <h2></h2>
     <p>
-      Wa bent la3wijaa
-Wa l alawyaaaa wa 3id milad sa3iiiiiiiiiid 🥳🥳🎉🎉l3o9ba l 1000 3am bzzf bzzf gha 100 baraka 3lik 😂o hydi lina mn hna hhh lmohim 3id milad sa3iiiid bach ma tmniti o m3amen ma tmniti o chi najah donya w akhira o bchi haja lik l walidiin 🫶🏻🫶🏻✨✨
+      فكرت كثيرا كيف ؟ كيف اجعل يومك هذا مميزا ؟ أكثر مما هو مميز بوجودك أو بالأحرى يوم ميلادك،
+     فكرت مليا ولم أجد في استطاعتي سو ى ان اكتب لك الرسالة لأخبرك
+      أنه كما أضاف قدومك إلى دنيا الفرح و السرور إلى من حولك. فوجودك في الحياتي اضاف لها الكثير
+كما يقول مصطفى محمود، في كتابه "في الحب والحياة"
+، فيصف الحب بأنه "النور الذي يضيء الظلام، والقوة التي تحول الضعف إلى إصرار". فأنت ذلك النور في حياتي؛
+ أنت الذي يجعلني أؤمن بأن كل تحدٍّ هو فرصة لنكون أقوى معًا. أتمنى لك في هذا العام أن تحقق كل أحلامك،
+ أن يفتح الله لك أبواب الرزق والتوفيق، وأن تظل ابتسامتك هي الشمعة التي توقد فرحي كل يوم. 
+كل عام وأنت بخير، كل عام وأنت رفيقي و حبيبي، الذي لا يُقاس حبه بالكلمات، بل بالأفعال التي نعيشها يومًا بعد يوم
       
     </p>
-    <p style="font-style:italic; margin-top: 2rem; text-align: right; font-size: 1.1rem; color: #8B4513;">
+    <p>
+     
+      <strong></strong>.
+    </p>
+    <p style="font-style:italic; margin-top: 2rem; text-align: left; font-size: 1.5rem; color: #8B4513;">
       <br>
-      Bilal, Wald boufekrane,
+      مريم
+      <br>
+      ربما حبيبتك
     </p>
   </div>
-
   <script>
     function revealLetter() {
       const wrapper = document.getElementById('envelopeWrapper');
       const button = document.getElementById('openBtn');
       const letter = document.getElementById('letterContent');
-      
+     
       // Cacher le bouton d'abord
       button.style.display = 'none';
-      
+     
       // Étape 1 : Ouvrir l'enveloppe (visible pendant 1s)
       wrapper.classList.add('opening');
-      
+     
       // Étape 2 : Après ouverture, faire disparaître l'enveloppe
       setTimeout(() => {
         wrapper.classList.add('hidden');
       }, 1000); // Délai pour voir l'ouverture
-      
+     
       // Étape 3 : Montrer la lettre après disparition
       setTimeout(() => {
         letter.classList.add('visible');
       }, 1500); // Total : ouverture (1s) + disparition (0.5s)
     }
   </script>
-
 </body>
 </html>
